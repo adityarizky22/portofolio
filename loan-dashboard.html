@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp Chatbot — JSMobile | Aditya Rizky</title>
+  <link rel="stylesheet" href="assets/css/chatbot.css" />
+</head>
+<body>
+  <main class="project-page">
+    <nav class="topbar">
+      <a href="index.html" class="back">← Back to portfolio</a>
+      <h1 class="site-title">Asset Loan Dashboard</h1>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h2>Asset Loan Dashboard for UPT P4JS</h2>
+        <p class="subtitle">
+          An automated asset management system built using <strong>Google Sheets & Apps Script</strong>, featuring loan/return forms, phone number validation, and real-time stock tracking.
+        </p>
+
+        <div class="meta">
+          <div><strong>Role:</strong> Developer</div>
+          <div><strong>Platform:</strong> Google Sheets, Apps Script</div>
+          <div><strong>Year:</strong> 2025</div>
+        </div>
+
+        <div class="badges">
+          <span>Google Sheets</span>
+          <span>Apps Script</span>
+          <span>JavaScript</span>
+          <span>Automation</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="https://docs.google.com/spreadsheets/d/1MoYV0hz6qFrJPLBoeiGIUcPVvgNuZCBvUXJHZigvmFI/edit?usp=sharing" target="_blank" rel="noopener">Live Demo</a>
+        </div>
+      </div>
+
+      <figure class="hero-right">
+        <img src="assets/pictures/loan-dashboard(1).png" alt="loan-dashboard" />
+        <figcaption>Form - Asset Loan</figcaption>
+      </figure>
+    </section>
+
+    <section class="details container">
+      <h3>Project Overview</h3>
+      <p>
+        This dashboard simplifies the process of borrowing and returning organizational assets. 
+        It uses Google Sheets as the database and Apps Script to automate workflows. 
+        Features include loan request forms, return forms, validation (phone number check), 
+        and real-time stock updates.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Loan & return forms with automated logging</li>
+            <li>Real-time asset stock calculation</li>
+            <li>Phone number validation for borrowers</li>
+            <li>Automated status updates for returned items</li>
+            <li>Interactive dashboard for quick overview</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Tech & Tools</h4>
+          <ul>
+            <li>Google Sheets</li>
+            <li>Apps Script (custom scripting for automation)</li>
+            <li>Data validation rules</li>
+            <li>Conditional formatting & formulas (SUMIFS, etc.)</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Screenshots</h4>
+      <div class="gallery">
+        <img src="assets/pictures/chatbot(2).png" alt="form-pengembalian" />
+        <img src="assets/pictures/chatbot(3).png" alt="log-loan" />
+        <img src="assets/pictures/chatbot(4).png" alt="asset-loan-dashboard" />
+      </div>
+
+      <h4>Short Code Snippet</h4>
+      <pre class="code">
+<code>
+  var lastRow = sheetLog.getRange("B1").getDataRegion().getLastRow();
+  lastRow += 1
+
+  // Generate kode unik / id peminjaman
+  var kodeUnik = "PMJ-" + ("00000" + (lastRow - 1)).slice(-5);  // PMJ-0001, PMJ-0002, dst
+
+  // Ambil nilai dari form input
+  var jenisAset = sheetForm.getRange("D6").getValue();
+    // Validasi: kalau D6 kosong, tampilkan alert dan hentikan proses
+    if (!jenisAset) {
+      SpreadsheetApp.getUi().alert("Silakan pilih Jenis Aset terlebih dahulu");
+      return; // Stop proses
+    }
+  var kodeAset = sheetForm.getRange("D7").getValue();
+  var tanggalPinjam = sheetForm.getRange("E10").getValue();
+  var namaPeminjam = sheetForm.getRange("E11").getValue();
+    if (!namaPeminjam) {
+      SpreadsheetApp.getUi().alert("Silakan masukkan Nama Peminjam terlebih dahulu");
+      return; // Stop proses
+    }
+  var nomorHp = sheetForm.getRange("E12").getValue();
+    //var nomorHpStr = String(nomorHp).replace(/\D/g;'');
+    const nomorHpStr = String(nomorHp).replace(/\D/g, ''); // hapus karakter non-angka
+      if (nomorHpStr.length !== 12) {
+        SpreadsheetApp.getUi().alert("Nomor HP harus terdiri dari 12 digit angka");
+        return; // Stop proses
+      }
+    if (!nomorHp) {
+        SpreadsheetApp.getUi().alert("Silakan masukkan Nomor HP Peminjam terlebih dahulu");
+        return; // Stop proses
+      }
+</code>
+      </pre>
+
+      <h4>Impact / Outcome</h4>
+      <ul>
+            <li>Improved efficiency in asset tracking</li>
+            <li>Reduced errors in loan & return process</li>
+            <li>Increased transparency for staff using shared dashboards</li>
+          </ul>
+    </section>
+
+    <footer class="project-footer">
+      <p>© 2025 Aditya Rizky — Asset Loan Dashboard</p>
+    </footer>
+  </main>
+</body>
+</html>
