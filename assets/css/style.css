@@ -80,3 +80,21 @@ footer {
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
+
+.detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0a3d62;
+  background: #eef4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.detail-link:hover {
+  background: #0a3d62;
+  color: #fff;
+  text-decoration: none;
+}
