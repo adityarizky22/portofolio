@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp Chatbot — JSMobile | Aditya Rizky</title>
+  <link rel="stylesheet" href="assets/css/chatbot.css" />
+</head>
+<body>
+  <main class="project-page">
+    <nav class="topbar">
+      <a href="index.html" class="back">← Back to portfolio</a>
+      <h1 class="site-title">WhatsApp Chatbot — JSMobile</h1>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h2>WhatsApp Chatbot for JSMobile</h2>
+        <p class="subtitle">
+          A custom WhatsApp automation built with <strong>Node.js (whatsapp-web.js)</strong>, integrated with Google Sheets for logging and categorization. Designed to reduce manual handling of user inquiries and improve response consistency.
+        </p>
+
+        <div class="meta">
+          <div><strong>Role:</strong> Developer</div>
+          <div><strong>Platform:</strong> WhatsApp / Google Sheets</div>
+          <div><strong>Year:</strong> 2025</div>
+        </div>
+
+        <div class="badges">
+          <span>Node.js</span>
+          <span>whatsapp-web.js</span>
+          <span>Google Sheets</span>
+          <span>Apps Script</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#" target="_blank" rel="noopener">View Repo</a>
+          <a class="btn" href="#" target="_blank" rel="noopener">Live Demo (if any)</a>
+        </div>
+      </div>
+
+      <figure class="hero-right">
+        <img src="assets/pictures/chatbot.jpeg" alt="WhatsApp Chatbot screenshot" />
+        <figcaption>Conversation flow & admin log (screenshot)</figcaption>
+      </figure>
+    </section>
+
+    <section class="details container">
+      <h3>Project Overview</h3>
+      <p>
+        The chatbot handles incoming messages with an auto-reply menu (options 1 / 2 / 3),
+        captures and logs messages to Google Sheets for later review, and supports storing
+        user names by phone number. The architecture is modular so future integration with
+        AI (OpenAI API) can be added with minimal changes.
+      </p>
+
+      <div class="two-col">
+        <div>
+          <h4>Key Features</h4>
+          <ul>
+            <li>Auto-reply menu system (menu options & guided flows)</li>
+            <li>Message logging to Google Sheets (category & timestamp)</li>
+            <li>User data handling (save name per phone number)</li>
+            <li>Planned AI integration (OpenAI) for intelligent replies</li>
+            <li>Error handling & reconnection logic for WhatsApp Web sessions</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Tech & Tools</h4>
+          <ul>
+            <li>Node.js, whatsapp-web.js</li>
+            <li>Google Sheets + Apps Script (Webhook)</li>
+            <li>ngrok / webhook tunnel (optional for local testing)</li>
+            <li>GitHub for source control</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Screenshots</h4>
+      <div class="gallery">
+        <img src="assets/chatbot-1.jpg" alt="chat snapshot 1" />
+        <img src="assets/chatbot-2.jpg" alt="chat snapshot 2" />
+        <img src="assets/chatbot-3.jpg" alt="admin sheet snapshot" />
+      </div>
+
+      <h4>Short Code Snippet</h4>
+      <pre class="code">
+<code>// Example: simple auto-reply handler (Node.js + whatsapp-web.js)
+client.on('message', async message => {
+  const from = message.from;
+  const text = message.body.trim();
+  if (text === '1') {
+    client.sendMessage(from, 'Thanks! Please type your issue...');
+  } else if (text === '2') {
+    client.sendMessage(from, 'For info, visit: https://jsmobile.org');
+  } else {
+    client.sendMessage(from, 'Welcome! Reply 1 for Support, 2 for Info, 3 for Sales.');
+  }
+});
+</code>
+      </pre>
+
+      <h4>Impact / Outcome</h4>
+      <p>
+        Reduced manual workload for handling FAQs and improved tracking of user requests.
+        The Google Sheets log enables supervisors to categorize and prioritize follow-ups.
+      </p>
+    </section>
+
+    <footer class="project-footer">
+      <p>© 2025 Aditya Rizky — IT Infrastructure Engineer</p>
+    </footer>
+  </main>
+</body>
+</html>
