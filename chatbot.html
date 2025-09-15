@@ -40,7 +40,7 @@
       </div>
 
       <figure class="hero-right">
-        <img src="assets/pictures/chatbot.jpeg" alt="WhatsApp Chatbot screenshot" />
+        <img src="assets/pictures/chatbot(3).jpeg" alt="WhatsApp Chatbot screenshot" />
         <figcaption>Conversation flow & admin log (screenshot)</figcaption>
       </figure>
     </section>
@@ -86,17 +86,20 @@
       <h4>Short Code Snippet</h4>
       <pre class="code">
 <code>// Example: simple auto-reply handler (Node.js + whatsapp-web.js)
-client.on('message', async message => {
-  const from = message.from;
-  const text = message.body.trim();
-  if (text === '1') {
-    client.sendMessage(from, 'Thanks! Please type your issue...');
-  } else if (text === '2') {
-    client.sendMessage(from, 'For info, visit: https://jsmobile.org');
-  } else {
-    client.sendMessage(from, 'Welcome! Reply 1 for Support, 2 for Info, 3 for Sales.');
-  }
-});
+if (pendingNames[from]) {
+        const nama = text;
+        users[from] = nama;
+        delete pendingNames[from];
+        fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+
+        message.reply(`Halo ${text}, Sekarang silakan ketik angka sesuai permasalahan kamu ya: *(contoh: 1)*\n` +
+            '1. Tidak bisa Login / Menunggu Verifikasi \n' +
+            '2. Terkendala memilih Asal Sekolah\n' +
+            '3. Terkendala Presensi / tidak bisa klik Presensi\n' +
+            '4. Tidak bisa Daftar Pelatihan\n' +
+            '5. Lainnya'
+        );
+        return;
 </code>
       </pre>
 
@@ -113,5 +116,6 @@ client.on('message', async message => {
   </main>
 </body>
 </html>
+
 
 
