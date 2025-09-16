@@ -1,3 +1,13 @@
+
+
+/* technical support */
+ul {
+  margin: 10px 0 20px 20px;
+  line-height: 1.6;
+  color: #374151;
+}
+ul li { margin-bottom: 6px; }
+
 :root{
   --bg:#f6f8fb;
   --card:#ffffff;
@@ -71,11 +81,3 @@ pre{margin:0}
   .two-col{grid-template-columns:1fr}
   .meta{flex-direction:column;gap:6px}
 }
-
-/* technical support */
-ul {
-  margin: 10px 0 20px 20px;
-  line-height: 1.6;
-  color: #374151;
-}
-ul li { margin-bottom: 6px; }
